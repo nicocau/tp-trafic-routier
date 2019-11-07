@@ -75,8 +75,10 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
       int[] nbTop = {0};
       Timeline littleCycle = new Timeline(new KeyFrame(Duration.millis(tempo), 
             event-> {animDeplacement();nbTop[0]++;
-            //TODO: tous les 3 tops ajouter 2 voitures
-               //TODO : nico : Faire un methode addDesinVoiture
+            if (nbTop[0] %3 == 0){
+                Voiture v = this.control.addVoiture(this.control.getHasard().nextBoolean());
+                v.setDessinVoiture(addDessinVoiture(troupe, decalage, v));
+            }
             }) );
       littleCycle.setCycleCount(Timeline.INDEFINITE);
       littleCycle.play();
@@ -131,7 +133,8 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
       //dessin des voitures
       for(Voiture v:voitures)
       {
-         addDessinVoiture(troupe, decalage, v);
+         v.setDessinVoiture(addDessinVoiture(troupe, decalage, v));
+
       }
 
 
@@ -141,8 +144,9 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
     * @param troupe
     * @param decalage
     * @param v
+    * @return
     */
-   private void addDessinVoiture(Group troupe, double decalage,  Voiture v)
+   private DessinVoiture addDessinVoiture(Group troupe, double decalage, Voiture v)
    {
       double cx = decalage + v.getX() * width/maxDim;
       double cy = decalage + v.getY() * height/maxDim;
@@ -157,6 +161,7 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
       dropShadow.setColor(Color.color(0.4, 0.5, 0.5));
       dv.setEffect(dropShadow);
       dessinsVoitures.add(dv);
+      return dv;
    }
 
 
@@ -176,20 +181,18 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
     * */
    private void animDeplacement()
    {
-      //TODO : nico : calculerPoint puis Bougervoiture
-   //TODO: demander aux voitures de calculer leur point suivant
-   //TODO: demander aux voitures de mettre à jour leurs points suivants (qui peut rester le meme)
       List<Voiture> voitures = control.getVoitures();
       List<Voiture> voituresAOter = new ArrayList<>();
       int nbVoitures =voitures.size(); 
       for(int i=0; i<nbVoitures; i++)
       {
          Voiture v = voitures.get(i);
-         DessinVoiture dv = dessinsVoitures.get(i);
+         v.calculerProchainNoeud();
+         v.allerAuProchainNoeud();
+         DessinVoiture dv = v.getDessinVoiture();
          if(!v.isArrivee() && !v.isPause())
          {
-            //todo : remplacer par getProchain noeux
-            Noeud n = null;
+            Noeud n = v.getProchainNoeud();
             if(n!=null)
             {
                if(!dv.selected)
@@ -209,16 +212,17 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
          else
          if(v.isAccident())
          {
-         // TODO: afficher l'accident (voiture en noir par exemple)
-         // TODO: increnement le temps passe en panne
+             dv.setFill(Color.BLACK);
+             v.incrementeTpsPanne();
          }
-         else
          if(v.isArrivee() || v.isARemorquer())
          {
-         //TODO: si la voiture est arrivee ou est a remorquer (trop de temps passe en panne) la supprimer elle et son dessin
+             voituresAOter.add(v);
+             this.troupe.getChildren().remove(dv);
+             v.getNoeudCourant().removeCar(v);
          }
       }
-
+       voituresAOter.forEach(voiture-> this.control.getVoitures().remove(voiture));
    }
 
    /** si besoin, recuperation de dessin de voiture a partir de l'id de la voiture*/

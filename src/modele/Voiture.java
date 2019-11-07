@@ -66,6 +66,9 @@ public class Voiture
       this.destination = destination;
       calculerRoute();
       for(Noeud n:trajet)routeRestante.add(n);
+       this.prochainNoeud = this.noeudCourant;
+//       this.prochainNoeud = this.routeRestante.get(0);
+//       this.routeRestante.remove(0);
    }
    /**construit une voiture
     * @param no identifiant de la voiture
@@ -81,6 +84,9 @@ public class Voiture
       this.destination = ReseauRoutier.getNoeud(xd, yd);
       calculerRoute();
       for(Noeud n:trajet)routeRestante.add(n);
+       this.prochainNoeud = this.noeudCourant;
+//       this.prochainNoeud = this.routeRestante.get(0);
+//       this.routeRestante.remove(0);
    }
    
    /**calcul la route entre origine et destination 
@@ -111,30 +117,24 @@ public class Voiture
       }
    }
 
-   //TODO : Nico : commencerAvencerVerPointSuivant Vérifie les statut(vérifie si arriver, si pas dans les bouchon
-    //TODO : nico : finirAvencerVerPointSuivant déplacer la voiture en fonction du statut
 
    /** retourne le prochain noeud de la route (depile routeRestante)
     */
-   //TODO : nico : Remplacer par commencerAvencerVerPointSuivant
    public void calculerProchainNoeud()
    {
-      Noeud suivant;
       //si la voiture n'a pas ete mise en pause
       // si elle n'est pas impliquée dans un accident
       //s'il lui reste du chemin à faire
-      if(!pause && !accident && !routeRestante.isEmpty())
-      {
-         //verifier que la route devant est libre
-         verifBouchon();
-         //si la voiture n'est pas dans un bouchon
-         if(!bouchon)
-         {
-             //TODO : nico :
-             noeudCourant = routeRestante.remove(0);
-            if(noeudCourant.equals(destination)) arrivee = true;
-         }
-      }
+       if (!pause && !accident && !routeRestante.isEmpty() && !arrivee) {
+           //verifier que la route devant est libre
+           verifBouchon();
+           //si la voiture n'est pas dans un bouchon
+           if (!bouchon) {
+               if (noeudCourant.equals(destination)) arrivee = true;
+           }
+       } else if (!routeRestante.isEmpty()) {
+           arrivee = true;
+       }
    }
    
   /**verifie si la voiture est dans un bouchon*/
@@ -150,17 +150,19 @@ public class Voiture
    }
    
    /**se detacher du noeud precedent et se declarer au noeud suivant*/
-   //TODO : nico : finirAvencerVerPointSuivant
    public void allerAuProchainNoeud()
    {
       //si la voiture n'a pas ete mise en pause
       // si elle n'est pas impliquée dans un accident
       //s'il lui reste du chemin à faire      
-       if(!pause || !bouchon|| !accident) {
+       if ((!pause || !bouchon || !accident) && !routeRestante.isEmpty()) {
+           System.out.println("La voiture n°" + this.id + " est sur le noeud (" + this.noeudCourant.x + "," + this.noeudCourant.y + ") est va sur le noeud (" + this.prochainNoeud.x + "," + this.prochainNoeud.y + ")");
           //aller au prochain noeud calculet
-//           noeudCourant.removeCar(this);
-//           noeudSuivi.addCar(this);
-//           noeudCourant = noeudSuivi;
+           this.noeudCourant.removeCar(this);
+           this.noeudCourant = this.prochainNoeud;
+           this.noeudCourant.addCar(this);
+           this.prochainNoeud = this.routeRestante.get(0);
+           this.routeRestante.remove(0);
        }
    }
       
@@ -184,6 +186,10 @@ public class Voiture
       if(!pause && noeudCourant!=null) noeudCourant.removeCar(this);
    }
 
+    public Noeud getProchainNoeud() {
+        return prochainNoeud;
+    }
+
     public Noeud getNoeudCourant() { return noeudCourant; }
 
     public void setNoeudCourant(Noeud noeudCourant) {
@@ -202,8 +208,17 @@ public class Voiture
    
    public void incrementeTpsPanne() {tpsPanne++; }
    public boolean isARemorquer() {
-      if (this.tpsPanne>= Voiture.REMORQUAGE){
+       if (this.tpsPanne > Voiture.REMORQUAGE) {
           return true;
       }
-      return false;}  
+       return false;
+   }
+
+    public DessinVoiture getDessinVoiture() {
+        return dessinVoiture;
+    }
+
+    public void setDessinVoiture(DessinVoiture dessinVoiture) {
+        this.dessinVoiture = dessinVoiture;
+    }
 }

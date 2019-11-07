@@ -101,4 +101,8 @@ public class ControleTrafic
    {
       return voitures;
    }
+
+   public Random getHasard() {
+      return hasard;
+   }
 }
