@@ -65,7 +65,7 @@ public class Noeud {
       cars.add(car); 
       if(cars.size()>1)
       {
-	 //TODO: mettre toutes les voitures du noeud en accident
+         this.cars.forEach(v -> v.setAccident(true));
       }
    }
 

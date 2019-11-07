@@ -146,7 +146,7 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
    {
       double cx = decalage + v.getX() * width/maxDim;
       double cy = decalage + v.getY() * height/maxDim;
-      DessinVoiture dv = new DessinVoiture(cx, cy, 4*width/maxDim, v.getId());
+      DessinVoiture dv = new DessinVoiture(cx, cy, 0.1*width/maxDim, v.getId());
       troupe.getChildren().add(dv);
       dv.setSmooth(true);
       dv.setOnMouseClicked(this);
