@@ -202,6 +202,8 @@ public class Voiture
    
    public void incrementeTpsPanne() {tpsPanne++; }
    public boolean isARemorquer() {
-      //TODO: le vehicule est a remorquer si le tps de panne depasse le seuil
+      if (this.tpsPanne>= Voiture.REMORQUAGE){
+          return true;
+      }
       return false;}  
 }

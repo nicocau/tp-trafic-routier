@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30b098fd-e9e1-4b87-8fcb-c4a9fdc434dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/nicol.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TP-Trafic-routier.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TP-Trafic-routier.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/ControleTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/ControleTrafic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/AppliTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppliTrafic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/DessinVoiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DessinVoiture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/Arc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Arc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/Noeud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Noeud.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modele/Voiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Voiture.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,8 +77,23 @@
       <workItem from="1572986136676" duration="1237000" />
       <workItem from="1573069091012" duration="1832000" />
       <workItem from="1573129288242" duration="598000" />
-      <workItem from="1573139074874" duration="5419000" />
+      <workItem from="1573139074874" duration="5849000" />
     </task>
+    <task id="LOCAL-00001" summary="Debut le code">
+      <created>1573150903073</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1573150903073</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Modifie la taille du dessin de la voiture et met les voiture en accident">
+      <created>1573151115678</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573151115678</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +111,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Debut le code" />
+    <MESSAGE value="Modifie la taille du dessin de la voiture et met les voiture en accident" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifie la taille du dessin de la voiture et met les voiture en accident" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
