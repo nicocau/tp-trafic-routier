@@ -8,23 +8,22 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class DessinVoiture extends Circle {
-   /**id*/
-   int no;
-	/**vrai si la voiture est actuellement selectionnee*/
-	boolean selected;
-	/**position de la voiture */
-	private Point position;
 	/**ancienne position de la voiture*/
 	private Point anciennePosition;
+	/**animation du deplacement*/
+	Timeline animation;
+	/**couleur courante de la voiture*/
+	Color cj = couleur;
 	/**couleur pour voiture en mouvement*/
 	public static Color couleur = Color.RED;
 	/**couleur pour voiture  selectionnee*/
 	public static Color couleurSelected = Color.GAINSBORO;
-  /**couleur courante de la voiture*/
-  Color cj = couleur;
-	/**animation du deplacement*/
-	Timeline animation;
-
+	/**id*/
+   int no;
+	/**position de la voiture */
+	private Point position;
+	/**vrai si la voiture est actuellement selectionnee*/
+	boolean selected;
 
 	/**
 	*constructeur
@@ -80,7 +79,7 @@ public class DessinVoiture extends Circle {
 	}
 
 	/**
-	 * @param position the position to set
+	 * @param _position the position to set
 	 */
 	public void setPosition(Point _position) {
 		this.position = _position;

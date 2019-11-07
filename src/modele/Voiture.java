@@ -1,5 +1,7 @@
 package modele;
 
+import gui.DessinVoiture;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +10,9 @@ public class Voiture
    /**identifiant de la voiture*/
    private int id;
    /**coordonnée x de la voiture*/
-   double x;
+   int x;
    /**coordonnée y de la voiture*/
-   double y;
+   int y;
    /**liste des noeuds du trajet prevu*/
    private List<Noeud> trajet;
    /**liste des restant a parcourir*/
@@ -19,9 +21,10 @@ public class Voiture
    private Noeud origine;
    /**noeud de destination finale*/
    private Noeud destination;
-   /**dernier noeud suivi*/
-   //TODO : nico : noeux actuel et ajoute le prochain noeux (car
-   private Noeud noeudSuivi;
+   /**noeud noeudCourant*/
+   private Noeud noeudCourant;
+   /**prochain noeud*/
+   private Noeud prochainNoeud;
    /**pause pendant le parcours*/
    private boolean pause;
    /**indique si la voiture est arrivee*/
@@ -34,6 +37,10 @@ public class Voiture
    final static int REMORQUAGE = 10;
    /**temps de panne*/
    private int tpsPanne = 0;
+   /**temps de panne*/
+   private static int conte_id_voiture = 0;
+    /** Représentation */
+   private DessinVoiture dessinVoiture;
    
    
    Voiture(){}
@@ -46,14 +53,14 @@ public class Voiture
       routeRestante = new ArrayList<>();
       }
    /**construit une voiture
-    * @param id identifiant de la voiture
+    * @param no identifiant de la voiture
     * @param origine noeud de depart
     * @param destination noeud d'arrivee
     * */
    public Voiture(int no, Noeud origine, Noeud destination) {
       this(no);
       this.origine = origine;
-      this.noeudSuivi = this.origine;
+      this.noeudCourant = this.origine;
       x = origine.x;
       y = origine.y;
       this.destination = destination;
@@ -61,14 +68,14 @@ public class Voiture
       for(Noeud n:trajet)routeRestante.add(n);
    }
    /**construit une voiture
-    * @param id identifiant de la voiture
+    * @param no identifiant de la voiture
     * @param xo yo coordonnees du noeud d'origine
     * @param xd yd coordonnees du noeud de destinatin
     * */
    public Voiture(int no, int xo, int yo, int xd, int yd) {
       this(no);
       this.origine = ReseauRoutier.getNoeud(xo, yo);
-      this.noeudSuivi = this.origine;
+      this.noeudCourant = this.origine;
       x = origine.x;
       y = origine.y;
       this.destination = ReseauRoutier.getNoeud(xd, yd);
@@ -124,8 +131,8 @@ public class Voiture
          if(!bouchon)
          {
              //TODO : nico :
-            noeudSuivi = routeRestante.remove(0);
-            if(noeudSuivi.equals(destination)) arrivee = true;
+             noeudCourant = routeRestante.remove(0);
+            if(noeudCourant.equals(destination)) arrivee = true;
          }
       }
    }
@@ -151,9 +158,9 @@ public class Voiture
       //s'il lui reste du chemin à faire      
        if(!pause || !bouchon|| !accident) {
           //aller au prochain noeud calculet
-           noeudCourant.removeCar(this);
-           noeudSuivi.addCar(this);
-           noeudCourant = noeudSuivi;
+//           noeudCourant.removeCar(this);
+//           noeudSuivi.addCar(this);
+//           noeudCourant = noeudSuivi;
        }
    }
       
@@ -173,11 +180,17 @@ public class Voiture
    public void setPause(boolean pause) 
    { 
       this.pause = pause; 
-      if(pause && noeudSuivi!=null) noeudSuivi.addCar(this);
-      if(!pause && noeudSuivi!=null) noeudSuivi.removeCar(this);
+      if(pause && noeudCourant!=null) noeudCourant.addCar(this);
+      if(!pause && noeudCourant!=null) noeudCourant.removeCar(this);
    }
-   public Noeud getNoeudSuivi() { return noeudSuivi; }
-   public boolean isAccident() { return accident; }
+
+    public Noeud getNoeudCourant() { return noeudCourant; }
+
+    public void setNoeudCourant(Noeud noeudCourant) {
+        this.noeudCourant = noeudCourant;
+    }
+
+    public boolean isAccident() { return accident; }
    public void setAccident(boolean accident)
    {
       this.accident = accident;

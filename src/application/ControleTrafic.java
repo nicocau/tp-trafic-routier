@@ -32,7 +32,19 @@ public class ControleTrafic
    public Voiture addVoiture(boolean ligne)
    {
       Voiture v = null;
-      //TODO: creer une voiture placee aleatoirement
+       int nb = (int) ReseauRoutier.getDimMax();
+       Noeud debut = null;
+       Noeud fin = null;
+       int random = this.hasard.nextInt(nb-1);
+       random +=1;
+       if (ligne) {
+           debut = ReseauRoutier.getNoeud(0, random);
+           fin = ReseauRoutier.getNoeud(nb, random);
+       } else {
+           debut = ReseauRoutier.getNoeud(random, nb);
+           fin = ReseauRoutier.getNoeud(random, 0);
+       }
+       v = new Voiture(this.voitures.size(), debut, fin);
       voitures.add(v);
       return v;
    }
@@ -42,7 +54,7 @@ public class ControleTrafic
    @return la nouvelle liste de voitures*/
    public List<Voiture> removeCar(Voiture v)
    {
-      v.getNoeudSuivi().removeCar(v);
+      v.getNoeudCourant().removeCar(v);
       voitures.remove(v);
       return voitures;
    }
@@ -71,7 +83,7 @@ public class ControleTrafic
          {
             //TODO : nico : Ajouter une fonction finirAvencerVerPointSuivant qui englobe tous
           //TODO:si la voiture n'est pas en pause ou stoppe, lui demander se se retirer du noeud suivi
-            Noeud n = v.getNoeudSuivi();
+            Noeud n = v.getNoeudCourant();
             if(n!=null) n.removeCar(v);
          }
       }      

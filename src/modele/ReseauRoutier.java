@@ -12,15 +12,15 @@ public class ReseauRoutier
    /**dim max trouvee en x ou y (utilise pour mise a l'echelle dans la partie graphique)*/
    private static double dimMax;
 
-   public ReseauRoutier(){}
+   public ReseauRoutier(){
+   }
 
-
-   /**ajoute deux noeuds et un arc entre eux
-    * @param xo x du noeud origine
-    * @param yo y du noeud origine
-    * @param xd x du noeud destination
-    * @param yd x du noeud destination
-    * */
+   /**
+    * ajoute deux noeuds et un arc entre eux
+    *
+    * @param origine
+    * @param destination
+    */
    private static void addArcs(Noeud origine, Noeud destination)
    {
       Arc a = new Arc(origine,destination);
@@ -80,7 +80,7 @@ public class ReseauRoutier
    }
 
    /**trouve la dimension max en x ou y sur l'ensemble des noeuds*/
-   private static void trouverDimMax()
+   public static void trouverDimMax()
    {
       double max = noeuds.get(0).x;
       for(Noeud n:noeuds)
@@ -96,7 +96,10 @@ public class ReseauRoutier
    
    public static void addNoeud(Noeud n) {noeuds.add(n);}
    public static void addArc(Arc a) {arcs.add(a);}
-   public static double getDimMax() {return dimMax;}
+   public static double getDimMax() {
+      ReseauRoutier.trouverDimMax();
+      return dimMax;
+   }
 
    public static List<Noeud> getNoeuds() { return noeuds; }
    public static List<Arc> getArcs() { return arcs; }

@@ -1,5 +1,6 @@
 package modele;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Arc
@@ -11,7 +12,7 @@ public class Arc
    /**noeuds secondaire entre les deux noeuds principaux*/
    Noeud[] petitsNoeuds;
    /**liste des voitures sur noeud*/
-   List<Voiture> cars;
+   List<Voiture> cars = new ArrayList<>();
    /**nom de l'arc*/
    String name;
 
@@ -43,13 +44,13 @@ public class Arc
       this.start = start;
       this.end = start;
       petitsNoeuds = new Noeud[nbPetitsNoeuds];
-      double pasX = (end.x-start.x)/(nbPetitsNoeuds+1);
-      double pasY = (end.y-start.y)/(nbPetitsNoeuds+1);
+      int pasX = (end.x-start.x)/(nbPetitsNoeuds+1);
+      int pasY = (end.y-start.y)/(nbPetitsNoeuds+1);
       Noeud noeudAvant = start;
       for(int i=1; i<=nbPetitsNoeuds; i++)
       {
-         double coorX = start.x + i*pasX;
-         double coorY = start.y + i*pasY;
+         int coorX = start.x + i*pasX;
+         int coorY = start.y + i*pasY;
          Noeud petitsNoeud = new Noeud(coorX, coorY, false);
          petitsNoeuds[i-1] = petitsNoeud;
          Arc arc = new Arc(noeudAvant, petitsNoeuds[i-1]);

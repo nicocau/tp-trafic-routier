@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Noeud {
    /**colonne du noeud*/
-   double x;
+   int x;
    /**ligne du noeud*/
-   double y;
+   int y;
    /**liste des voisins accessibles*/
    List<Noeud> noeudsAccessibles;
    /**liste des arcs entrants*/
@@ -25,7 +25,7 @@ public class Noeud {
 
 	
    /**constructeur initialisant les coordonnées du noeud et son type*/
-    Noeud(double _x, double _y) {
+    Noeud(int _x, int _y) {
         x = _x;
         y = _y;
         principal = true;
@@ -37,7 +37,7 @@ public class Noeud {
     }
 
    /**constructeur initialisant les coordonnées du noeud et son type*/
-   Noeud(double _x, double _y, boolean _principal)
+   Noeud(int _x, int _y, boolean _principal)
    {
       this(_x, _y);
       principal = _principal;

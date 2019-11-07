@@ -26,25 +26,25 @@ import javafx.util.Duration;
 
 public class AppliTrafic extends Application implements EventHandler<MouseEvent> {
 
+   /**controle du trafic*/
+   ControleTrafic control;
    /** decalage avant dessin reseau*/
    double decalage;
-   /** nb pixels utilise en largeur pour le dessin effectif du reseau */
-   double width;
    /** nb pixels utilise en hauteur pour le dessin effectif du reseau */
    double height;
+   /***int dimMax rencontree dans les noeuds*/
+   double maxDim;
+   /** scene de jeu */
+   Scene scene;
+   /**vitesse de l'animation*/
+   long tempo = 500;
+   /**troupe des acteurs*/
+   Group troupe;
+   /** nb pixels utilise en largeur pour le dessin effectif du reseau */
+   double width;
    /**les dessins des voitures*/
    //todo : nico : soit ratache le desin a la voiture ou refaire fonction du prof
    List<DessinVoiture> dessinsVoitures;
-   /** scene de jeu */
-   Scene scene;
-   /**troupe des acteurs*/
-   Group troupe;
-   /**vitesse de l'animation*/
-   long tempo = 500;
-   /**controle du trafic*/
-   ControleTrafic control;
-   /***int dimMax rencontree dans les noeuds*/
-   double maxDim;
 
 
    /** lancement automatique de l'application graphique */
@@ -140,7 +140,6 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
    /**ajoute un dessin pour la voiture v
     * @param troupe
     * @param decalage
-    * @param radius
     * @param v
     */
    private void addDessinVoiture(Group troupe, double decalage,  Voiture v)
@@ -174,8 +173,6 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
 
 
    /**realise l'animation pour le deplacement du jeton sélectionné
-    * @param xdest coordonnees x d'arrivée
-    * @param ydest coordonnees y d'arrivée
     * */
    private void animDeplacement()
    {
@@ -192,7 +189,7 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
          if(!v.isArrivee() && !v.isPause())
          {
             //todo : remplacer par getProchain noeux
-            Noeud n = v.prochainNoeud();
+            Noeud n = null;
             if(n!=null)
             {
                if(!dv.selected)
