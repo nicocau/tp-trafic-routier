@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/ControleTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/ControleTrafic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AppliTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppliTrafic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/Noeud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Noeud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modele/Voiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Voiture.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,7 +82,8 @@
       <workItem from="1572986136676" duration="1237000" />
       <workItem from="1573069091012" duration="1832000" />
       <workItem from="1573129288242" duration="598000" />
-      <workItem from="1573139074874" duration="16984000" />
+      <workItem from="1573139074874" duration="17662000" />
+      <workItem from="1573234402080" duration="8115000" />
     </task>
     <task id="LOCAL-00001" summary="Debut le code">
       <created>1573150903073</created>
@@ -103,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573151296955</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Modifie les accident">
+      <created>1573166994991</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1573166994991</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,25 +136,16 @@
     <MESSAGE value="Debut le code" />
     <MESSAGE value="Modifie la taille du dessin de la voiture et met les voiture en accident" />
     <MESSAGE value="Ajoute la gestion du remorquage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajoute la gestion du remorquage" />
+    <MESSAGE value="Modifie les accident" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifie les accident" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/AppliTrafic.java</url>
-          <line>215</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/AppliTrafic.java</url>
-          <line>217</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/gui/AppliTrafic.java</url>
-          <line>219</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/src/modele/Voiture.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

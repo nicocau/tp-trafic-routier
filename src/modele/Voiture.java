@@ -38,7 +38,7 @@ public class Voiture
    /**temps de panne*/
    private int tpsPanne = 0;
    /**temps de panne*/
-   private static int conte_id_voiture = 0;
+   public static int conte_id_voiture = 0;
     /** Représentation */
    private DessinVoiture dessinVoiture;
    
@@ -125,15 +125,14 @@ public class Voiture
       //si la voiture n'a pas ete mise en pause
       // si elle n'est pas impliquée dans un accident
       //s'il lui reste du chemin à faire
-       if (!pause && !accident && !routeRestante.isEmpty() && !arrivee) {
+       if (!pause && !accident && !arrivee) {
            //verifier que la route devant est libre
            verifBouchon();
            //si la voiture n'est pas dans un bouchon
            if (!bouchon) {
                if (noeudCourant.equals(destination)) arrivee = true;
+               if (prochainNoeud.equals(destination)) arrivee = true;
            }
-       } else if (!routeRestante.isEmpty()) {
-           arrivee = true;
        }
    }
    
@@ -158,9 +157,11 @@ public class Voiture
        if ((!pause || !bouchon || !accident) && !routeRestante.isEmpty()) {
            System.out.println("La voiture n°" + this.id + " est sur le noeud (" + this.noeudCourant.x + "," + this.noeudCourant.y + ") est va sur le noeud (" + this.prochainNoeud.x + "," + this.prochainNoeud.y + ")");
           //aller au prochain noeud calculet
-           this.noeudCourant.removeCar(this);
+           if (noeudCourant != prochainNoeud) {
+               this.noeudCourant.removeCar(this);
+           }
+           this.prochainNoeud.addCar(this);
            this.noeudCourant = this.prochainNoeud;
-           this.noeudCourant.addCar(this);
            this.prochainNoeud = this.routeRestante.get(0);
            this.routeRestante.remove(0);
        }
@@ -181,9 +182,9 @@ public class Voiture
    public boolean isArrivee() { return arrivee; }
    public void setPause(boolean pause) 
    { 
-      this.pause = pause; 
-      if(pause && noeudCourant!=null) noeudCourant.addCar(this);
-      if(!pause && noeudCourant!=null) noeudCourant.removeCar(this);
+      this.pause = pause;
+//      if(pause && noeudCourant!=null) noeudCourant.addCar(this);
+//      if(!pause && noeudCourant!=null) noeudCourant.removeCar(this);
    }
 
     public Noeud getProchainNoeud() {

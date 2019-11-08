@@ -1,14 +1,6 @@
 package gui;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 import application.ControleTrafic;
-import modele.Arc;
-import modele.Noeud;
-import modele.ReseauRoutier;
-import modele.Voiture;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -23,6 +15,14 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import modele.Arc;
+import modele.Noeud;
+import modele.ReseauRoutier;
+import modele.Voiture;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class AppliTrafic extends Application implements EventHandler<MouseEvent> {
 
@@ -37,13 +37,12 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
    /** scene de jeu */
    Scene scene;
    /**vitesse de l'animation*/
-   long tempo = 500;
+   long tempo = 1000;
    /**troupe des acteurs*/
    Group troupe;
    /** nb pixels utilise en largeur pour le dessin effectif du reseau */
    double width;
    /**les dessins des voitures*/
-   //todo : nico : soit ratache le desin a la voiture ou refaire fonction du prof
    List<DessinVoiture> dessinsVoitures;
 
 
@@ -75,7 +74,7 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
       int[] nbTop = {0};
       Timeline littleCycle = new Timeline(new KeyFrame(Duration.millis(tempo), 
             event-> {animDeplacement();nbTop[0]++;
-            if (nbTop[0] %3 == 0){
+               if (nbTop[0] % 2 == 0) {
                 Voiture v = this.control.addVoiture(this.control.getHasard().nextBoolean());
                 v.setDessinVoiture(addDessinVoiture(troupe, decalage, v));
             }
@@ -183,12 +182,12 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
    {
       List<Voiture> voitures = control.getVoitures();
       List<Voiture> voituresAOter = new ArrayList<>();
-      int nbVoitures =voitures.size(); 
+      this.control.calculerPointsSuivants();
+      this.control.bougerVoitures();
+      int nbVoitures = voitures.size();
       for(int i=0; i<nbVoitures; i++)
       {
          Voiture v = voitures.get(i);
-         v.calculerProchainNoeud();
-         v.allerAuProchainNoeud();
          DessinVoiture dv = v.getDessinVoiture();
          if(!v.isArrivee() && !v.isPause())
          {
@@ -219,10 +218,9 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
          {
              voituresAOter.add(v);
              this.troupe.getChildren().remove(dv);
-             v.getNoeudCourant().removeCar(v);
          }
       }
-       voituresAOter.forEach(voiture-> this.control.getVoitures().remove(voiture));
+      voituresAOter.forEach(voiture -> this.control.removeCar(voiture));
    }
 
    /** si besoin, recuperation de dessin de voiture a partir de l'id de la voiture*/

@@ -24,8 +24,8 @@ public class ControleTrafic
       voitures = new ArrayList<>();
       hasard= new Random();
       //on debute avec 2 voitures, l'une en délacement en est-ouest, l'autre en sud-nord
-      addVoiture(true);
-      addVoiture(false);
+//      addVoiture(true);
+//      addVoiture(false);
    }
    
    /**ajoute 1 voitures se deplacant soit  du sud au nord, soit de l'ouest vers l'est*/
@@ -44,7 +44,7 @@ public class ControleTrafic
            debut = ReseauRoutier.getNoeud(random, nb);
            fin = ReseauRoutier.getNoeud(random, 0);
        }
-       v = new Voiture(this.voitures.size(), debut, fin);
+       v = new Voiture(Voiture.conte_id_voiture++, debut, fin);
       voitures.add(v);
       return v;
    }
@@ -54,6 +54,7 @@ public class ControleTrafic
    @return la nouvelle liste de voitures*/
    public List<Voiture> removeCar(Voiture v)
    {
+
       v.getNoeudCourant().removeCar(v);
       voitures.remove(v);
       return voitures;
@@ -68,8 +69,7 @@ public class ControleTrafic
          if(v.isBouchon())v.verifBouchon();
          if(!v.isArrivee() && !v.isPause())
          {
-            //TODO : nico : Ajouter une fonction commencerAvencerVerPointSuivant
-          //TODO:si la voiture n'est pas arrivee ou en pause ou stoppe, lui demander prendre le  noeud suivant
+            v.calculerProchainNoeud();
          }
       }
    }
@@ -81,18 +81,15 @@ public class ControleTrafic
       {
          if(!v.isPause())
          {
-            //TODO : nico : Ajouter une fonction finirAvencerVerPointSuivant qui englobe tous
-          //TODO:si la voiture n'est pas en pause ou stoppe, lui demander se se retirer du noeud suivi
-            Noeud n = v.getNoeudCourant();
-            if(n!=null) n.removeCar(v);
+            v.allerAuProchainNoeud();
          }
-      }      
+      }
    }
    
    /**met en pause la voiture no i*/
    public void pauseVoiture(int i)
    {
-      Voiture v = voitures.get(i);
+      Voiture v = this.getVoitureById(i);
       v.setPause(!v.isPause());
    }
    
@@ -104,5 +101,15 @@ public class ControleTrafic
 
    public Random getHasard() {
       return hasard;
+   }
+
+   private Voiture getVoitureById(int id){
+      final Voiture[] res = new Voiture[1];
+      this.voitures.forEach(voiture -> {
+         if (voiture.getId() == id){
+            res[0] = voiture;
+         }
+      });
+      return res[0];
    }
 }
