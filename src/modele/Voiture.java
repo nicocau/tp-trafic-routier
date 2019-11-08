@@ -142,8 +142,7 @@ public class Voiture
      //s'il reste de la route à faire
       if(!routeRestante.isEmpty())
       {
-         Noeud suivant = routeRestante.get(0);
-         if(suivant.getNbCars()==0) setBouchon(false);
+         if(this.prochainNoeud.getNbCars()==0) setBouchon(false);
          else setBouchon(true);
       }
    }
@@ -154,7 +153,7 @@ public class Voiture
       //si la voiture n'a pas ete mise en pause
       // si elle n'est pas impliquée dans un accident
       //s'il lui reste du chemin à faire      
-       if ((!pause || !bouchon || !accident) && !routeRestante.isEmpty()) {
+       if ((!pause && !bouchon && !accident) && !routeRestante.isEmpty()) {
            System.out.println("La voiture n°" + this.id + " est sur le noeud (" + this.noeudCourant.x + "," + this.noeudCourant.y + ") est va sur le noeud (" + this.prochainNoeud.x + "," + this.prochainNoeud.y + ")");
           //aller au prochain noeud calculet
            if (noeudCourant != prochainNoeud) {

@@ -35,8 +35,8 @@ public class ControleTrafic
        int nb = (int) ReseauRoutier.getDimMax();
        Noeud debut = null;
        Noeud fin = null;
-      int random = this.hasard.nextInt((nb / 5) - 1);
-      random = (random + 1) * 5;
+      int random = this.hasard.nextInt((nb / 4) - 1);
+      random = (random + 1) * 4;
 //       random +=1;
        if (ligne) {
            debut = ReseauRoutier.getNoeud(0, random);
@@ -67,7 +67,7 @@ public class ControleTrafic
       for(Voiture v:voitures)
       {
       //si la voiture pense etre dans un bouchon, lui demander de verifier
-         if(v.isBouchon())v.verifBouchon();
+         v.verifBouchon();
          if(!v.isArrivee() && !v.isPause())
          {
             v.calculerProchainNoeud();
