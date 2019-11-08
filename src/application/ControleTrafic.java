@@ -106,10 +106,17 @@ public class ControleTrafic {
         return voitures;
     }
 
+    /**
+     * @return le générateur aléatoir
+     */
     public Random getHasard() {
         return hasard;
     }
 
+    /**
+     * @param id
+     * @return roturne la voiture avec le bon id
+     */
     private Voiture getVoitureById(int id) {
         final Voiture[] res = new Voiture[1];
         this.voitures.forEach(voiture -> {

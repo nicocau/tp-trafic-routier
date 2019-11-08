@@ -17,6 +17,9 @@ public class ReseauRoutier {
      */
     private static double dimMax;
 
+    /**
+     * constructeur par défaut
+     */
     public ReseauRoutier() {
     }
 

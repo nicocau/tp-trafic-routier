@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30b098fd-e9e1-4b87-8fcb-c4a9fdc434dc" name="Default Changelist" comment="Gére la pause">
+    <list default="true" id="30b098fd-e9e1-4b87-8fcb-c4a9fdc434dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/application/ControleTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/ControleTrafic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/AppliTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppliTrafic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/DessinVoiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DessinVoiture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modele/Arc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Arc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/Voiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Voiture.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +81,7 @@
       <workItem from="1573069091012" duration="1832000" />
       <workItem from="1573129288242" duration="598000" />
       <workItem from="1573139074874" duration="17662000" />
-      <workItem from="1573234402080" duration="14231000" />
+      <workItem from="1573234402080" duration="14833000" />
     </task>
     <task id="LOCAL-00001" summary="Debut le code">
       <created>1573150903073</created>
@@ -134,7 +132,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573249488134</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="REtire lec ligne inutile">
+      <created>1573249830864</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1573249830864</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Refacto du code">
+      <created>1573249991355</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1573249991355</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,18 +173,11 @@
     <MESSAGE value="Grosse modification" />
     <MESSAGE value="Ajoute les petit noeud" />
     <MESSAGE value="Gére la pause" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gére la pause" />
+    <MESSAGE value="REtire lec ligne inutile" />
+    <MESSAGE value="Refacto du code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refacto du code" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/application/ControleTrafic.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="ReseauRoutier.noeuds" language="JAVA" />

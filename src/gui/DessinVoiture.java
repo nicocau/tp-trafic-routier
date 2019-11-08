@@ -94,10 +94,16 @@ public class DessinVoiture extends Circle {
         setFill(cj);
     }
 
+    /**
+     * @return le string représentent le desin de la voiture
+     */
     public String toString() {
         return "(" + position.x + "," + position.y + ") avant en " + "(" + anciennePosition.x + "," + anciennePosition.y + ") ";
     }
 
+    /**
+     * @param animation
+     */
     public void setAnimation(Timeline animation) {
         this.animation = animation;
     }

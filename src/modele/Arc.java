@@ -41,10 +41,16 @@ public class Arc {
         this.name = "" + start.id + "-" + end.id;
     }
 
+    /**
+     * @return le noeu d'ariver
+     */
     public Noeud getEnd() {
         return end;
     }
 
+    /**
+     * @return le string représentant l'arc
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder(name);
         return sb.toString();
