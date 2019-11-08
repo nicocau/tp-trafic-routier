@@ -23,9 +23,6 @@ public class ControleTrafic
       ReseauRoutier.creerReseau();
       voitures = new ArrayList<>();
       hasard= new Random();
-      //on debute avec 2 voitures, l'une en délacement en est-ouest, l'autre en sud-nord
-//      addVoiture(true);
-//      addVoiture(false);
    }
    
    /**ajoute 1 voitures se deplacant soit  du sud au nord, soit de l'ouest vers l'est*/
@@ -37,7 +34,6 @@ public class ControleTrafic
        Noeud fin = null;
       int random = this.hasard.nextInt((nb / 4) - 1);
       random = (random + 1) * 4;
-//       random +=1;
        if (ligne) {
            debut = ReseauRoutier.getNoeud(0, random);
            fin = ReseauRoutier.getNoeud(nb, random);

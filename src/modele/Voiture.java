@@ -42,8 +42,7 @@ public class Voiture
     /** Représentation */
    private DessinVoiture dessinVoiture;
    
-   
-   Voiture(){}
+
    /**construit une voiture
     * @param id identifiant de la voiture
     * */
@@ -67,28 +66,8 @@ public class Voiture
       calculerRoute();
       for(Noeud n:trajet)routeRestante.add(n);
        this.prochainNoeud = this.noeudCourant;
-//       this.prochainNoeud = this.routeRestante.get(0);
-//       this.routeRestante.remove(0);
    }
-   /**construit une voiture
-    * @param no identifiant de la voiture
-    * @param xo yo coordonnees du noeud d'origine
-    * @param xd yd coordonnees du noeud de destinatin
-    * */
-   public Voiture(int no, int xo, int yo, int xd, int yd) {
-      this(no);
-      this.origine = ReseauRoutier.getNoeud(xo, yo);
-      this.noeudCourant = this.origine;
-      x = origine.x;
-      y = origine.y;
-      this.destination = ReseauRoutier.getNoeud(xd, yd);
-      calculerRoute();
-      for(Noeud n:trajet)routeRestante.add(n);
-       this.prochainNoeud = this.noeudCourant;
-//       this.prochainNoeud = this.routeRestante.get(0);
-//       this.routeRestante.remove(0);
-   }
-   
+
    /**calcul la route entre origine et destination 
     * (suppose que ces points soient aient une meme abscisse ou ordonnee)*/
    public void calculerRoute()
@@ -182,8 +161,6 @@ public class Voiture
    public void setPause(boolean pause) 
    { 
       this.pause = pause;
-//      if(pause && noeudCourant!=null) noeudCourant.addCar(this);
-//      if(!pause && noeudCourant!=null) noeudCourant.removeCar(this);
    }
 
     public Noeud getProchainNoeud() {
@@ -192,10 +169,6 @@ public class Voiture
 
     public Noeud getNoeudCourant() { return noeudCourant; }
 
-    public void setNoeudCourant(Noeud noeudCourant) {
-        this.noeudCourant = noeudCourant;
-    }
-
     public boolean isAccident() { return accident; }
    public void setAccident(boolean accident)
    {
@@ -203,7 +176,6 @@ public class Voiture
       if (accident)this.pause = true;
    }
    public int getId() { return id; }
-   public boolean isBouchon() { return bouchon; }
    public void setBouchon(boolean bouchon) { this.bouchon = bouchon; }
    
    public void incrementeTpsPanne() {tpsPanne++; }

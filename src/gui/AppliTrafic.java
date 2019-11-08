@@ -223,15 +223,6 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
       voituresAOter.forEach(voiture -> this.control.removeCar(voiture));
    }
 
-   /** si besoin, recuperation de dessin de voiture a partir de l'id de la voiture*/
-   private DessinVoiture getDessinVoiture(int id)
-   {
-      DessinVoiture dv = null;
-      Optional<DessinVoiture> opt = dessinsVoitures.stream().filter(v->v.getNo()==id).findFirst();
-      if(opt.isPresent()) dv = opt.get();
-      return dv;
-   }
-
    public static void main(String[] args) {
       launch(args);
    }

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30b098fd-e9e1-4b87-8fcb-c4a9fdc434dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="30b098fd-e9e1-4b87-8fcb-c4a9fdc434dc" name="Default Changelist" comment="Gére la pause">
       <change beforePath="$PROJECT_DIR$/src/application/ControleTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/ControleTrafic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/AppliTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppliTrafic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/DessinVoiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DessinVoiture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modele/Arc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Arc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modele/Voiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Voiture.java" afterDir="false" />
     </list>
@@ -81,7 +83,7 @@
       <workItem from="1573069091012" duration="1832000" />
       <workItem from="1573129288242" duration="598000" />
       <workItem from="1573139074874" duration="17662000" />
-      <workItem from="1573234402080" duration="13923000" />
+      <workItem from="1573234402080" duration="14231000" />
     </task>
     <task id="LOCAL-00001" summary="Debut le code">
       <created>1573150903073</created>
@@ -125,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573246945890</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Gére la pause">
+      <created>1573249488134</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1573249488134</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,21 +160,12 @@
     <MESSAGE value="Modifie les accident" />
     <MESSAGE value="Grosse modification" />
     <MESSAGE value="Ajoute les petit noeud" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajoute les petit noeud" />
+    <MESSAGE value="Gére la pause" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gére la pause" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/modele/Voiture.java</url>
-          <line>129</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/modele/Voiture.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/application/ControleTrafic.java</url>
           <line>23</line>

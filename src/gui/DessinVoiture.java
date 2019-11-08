@@ -70,56 +70,14 @@ public class DessinVoiture extends Circle {
 	{
 		setFill(cj);
 	}
-
-	/**
-	 * @return the position
-	 */
-	public Point getPosition() {
-		return position;
-	}
-
-	/**
-	 * @param _position the position to set
-	 */
-	public void setPosition(Point _position) {
-		this.position = _position;
-	}
-
-
-	/**
-	 * @return the anciennePosition
-	 */
-	public Point getAnciennePosition() {
-		return anciennePosition;
-	}
-	
-	public void moveToPosition(Point _point)
-	{
-		this.anciennePosition.setLocation(this.position);
-		this.position.setLocation(_point);
-	}
-
-	/**
-	 * @param anciennePosition the anciennePosition to set
-	 */  
-	public void setAnciennePosition(Point anciennePosition) {
-		this.anciennePosition = anciennePosition;
-	}
 	
 	public String toString()
 	{
 		return "("+position.x+","+position.y+") avant en "+ "("+anciennePosition.x+","+anciennePosition.y+") ";
 	}
 
-   public Timeline getAnimation()
-   {
-      return animation;
-   }
-
    public void setAnimation(Timeline animation)
    {
       this.animation = animation;
    }
-   
-   public int getNo() {return no;}
 }

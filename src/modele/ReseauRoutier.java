@@ -100,22 +100,11 @@ public class ReseauRoutier
       }
       dimMax = max;
    }
-   
-   public static void addNoeud(Noeud n) {noeuds.add(n);}
-   public static void addArc(Arc a) {arcs.add(a);}
+
    public static double getDimMax() {
       ReseauRoutier.trouverDimMax();
       return dimMax;
    }
 
    public static List<Noeud> getNoeuds() { return noeuds; }
-   public static List<Arc> getArcs() { return arcs; }
-
-   /**pour debogage eventuel, retourne la liste des noeuds du reseau*/
-   public static String toStringue()   
-   {
-      StringBuilder sb = new StringBuilder("reseau, noeuds = ");
-      noeuds.forEach(n->{if(n.isPrincipal()) sb.append(n).append("--");});
-      return sb.toString();            
-   }
 }
