@@ -5,9 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/ControleTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/ControleTrafic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AppliTrafic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AppliTrafic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/Noeud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Noeud.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/ReseauRoutier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modele/Voiture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modele/Voiture.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +81,7 @@
       <workItem from="1573069091012" duration="1832000" />
       <workItem from="1573129288242" duration="598000" />
       <workItem from="1573139074874" duration="17662000" />
-      <workItem from="1573234402080" duration="8115000" />
+      <workItem from="1573234402080" duration="11385000" />
     </task>
     <task id="LOCAL-00001" summary="Debut le code">
       <created>1573150903073</created>
@@ -113,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573166994991</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Grosse modification">
+      <created>1573242887931</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1573242887931</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,7 +142,8 @@
     <MESSAGE value="Modifie la taille du dessin de la voiture et met les voiture en accident" />
     <MESSAGE value="Ajoute la gestion du remorquage" />
     <MESSAGE value="Modifie les accident" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifie les accident" />
+    <MESSAGE value="Grosse modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grosse modification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -147,11 +153,16 @@
           <line>95</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/application/ControleTrafic.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="!pause || !bouchon|| !accident || !routeRestante.isEmpty()" language="JAVA" />
+        <watch expression="ReseauRoutier.getNoeud(0,10)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

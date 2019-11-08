@@ -1,12 +1,12 @@
 package application;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import modele.Noeud;
 import modele.ReseauRoutier;
 import modele.Voiture;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 /**
  * classe gérant le trafic routier
  * créer le réseau et les voitures
@@ -35,8 +35,9 @@ public class ControleTrafic
        int nb = (int) ReseauRoutier.getDimMax();
        Noeud debut = null;
        Noeud fin = null;
-       int random = this.hasard.nextInt(nb-1);
-       random +=1;
+      int random = this.hasard.nextInt((nb / 5) - 1);
+      random = (random + 1) * 5;
+//       random +=1;
        if (ligne) {
            debut = ReseauRoutier.getNoeud(0, random);
            fin = ReseauRoutier.getNoeud(nb, random);

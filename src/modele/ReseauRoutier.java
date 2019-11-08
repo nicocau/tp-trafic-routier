@@ -49,34 +49,41 @@ public class ReseauRoutier
    /**creation du reseau routier*/
    public static void creerReseau()
    {
-      //TODO: pas necessaire mais avancer par pas de 5O (i++ -> i+=50, idem pour j, remplacer 6 par 250, ....)
-      for(int i=0; i<6; i++)
-         for(int j=0; j<6; j++)
-         {
-            if(i==0 && (j==0 || j==5)) continue;
-            if(i==5 && (j==0 || j==5)) continue;
-            noeuds.add( new Noeud(i,j));
-         }
+       for (int i = 0; i < 6 * 5 - (5 - 1); i++) {
+           for (int j = 0; j < 6 * 5 - (5 - 1); j++) {
+               if (i == 0 && (j == 0 || j == 6 * 5 - (5 - 1) - 1)) continue;
+               if (i == 6 * 5 - (5 - 1) - 1 && (j == 0 || j == 6 * 5 - (5 - 1) - 1)) continue;
+               if (i % 5 == 0 || j % 5 == 0) {
+                   if (!(i == 0 || i == 6 * 5 - (5 - 1) - 1 || j == 0 || j == 6 * 5 - (5 - 1) - 1) || (i % 5 == 0 && j % 5 == 0)) {
+                       noeuds.add(new Noeud(i, j, (i % 5 == 0 && j % 5 == 0)));
+                   }
+               }
+           }
+       }
       Noeud o=null;
       Noeud d=null;
-      for(int x=0; x<5; x++)
-         for(int y=5; y>0; y--)
-         {
-            o = getNoeud(x,y);
-            if(o==null)continue;
-            if (y!=0 && y!=5)
-            {
-               d = getNoeud(x+1,y);
-               if(d==null)continue;
-               addArcs(o,d);
-            }
-            if (x!=0 && x!=5)
-            {
-               d = getNoeud(x,y-1);
-               if(d==null)continue;
-               addArcs(o,d);
-            }
-         }
+       for (int x = 0; x < 6 * 5 - (5 - 1) - 1; x++) {
+           for (int y = 6 * 5 - (5 - 1) - 1; y > 0; y--) {
+               o = getNoeud(x, y);
+               if (o == null) continue;
+               if (y != 0 && y != 6 * 5) {
+                   d = getNoeud(x + 1, y);
+                   if (d == null) continue;
+                   addArcs(o, d);
+               }
+           }
+       }
+       for (int y = 6 * 5 - (5 - 1) - 1; y > 0; y--)  {
+           for (int x = 0; x < 6 * 5 - (5 - 1) - 1; x++) {
+               o = getNoeud(x, y);
+               if (o == null) continue;
+               if (x != 0 && x != 6 * 5) {
+                   d = getNoeud(x, y - 1);
+                   if (d == null) continue;
+                   addArcs(o, d);
+               }
+           }
+       }
    }
 
    /**trouve la dimension max en x ou y sur l'ensemble des noeuds*/

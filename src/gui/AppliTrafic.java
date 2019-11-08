@@ -37,7 +37,7 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
    /** scene de jeu */
    Scene scene;
    /**vitesse de l'animation*/
-   long tempo = 1000;
+   long tempo = 500;
    /**troupe des acteurs*/
    Group troupe;
    /** nb pixels utilise en largeur pour le dessin effectif du reseau */
@@ -149,7 +149,7 @@ public class AppliTrafic extends Application implements EventHandler<MouseEvent>
    {
       double cx = decalage + v.getX() * width/maxDim;
       double cy = decalage + v.getY() * height/maxDim;
-      DessinVoiture dv = new DessinVoiture(cx, cy, 0.1*width/maxDim, v.getId());
+      DessinVoiture dv = new DessinVoiture(cx, cy, 0.5*width/maxDim, v.getId());
       troupe.getChildren().add(dv);
       dv.setSmooth(true);
       dv.setOnMouseClicked(this);
